@@ -1,13 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Input.css";
+import ReactGA from "react-ga";
 
-const Input = ({ type = "text", label }) => {
+export const Input = ({ inputName, label }) => {
+  const [inputValue, setInputValue] = useState("");
+
+  const handleChange = (e) => {
+    setInputValue(e.target.value);
+  };
+
+  const handleBlur = (e) => {
+    handlePageView(e);
+  };
+
+  const handlePageView = (e) => {
+    ReactGA.pageview("/tests/" + e.target.name + "/" + e.target.value);
+  };
+
   return (
-    <div className="input-container">
-    <label>{label}</label>
-      <input type={type} placeholder={'Type something'} className="input" />
-    </div>
+    <>
+      <label>{label}</label>
+      <input
+        type="text"
+        name={inputName}
+        placeholder={"Type something"}
+        className="input"
+        onChange={handleChange}
+        onBlur={handleBlur}
+        value={inputValue}
+      />
+    </>
   );
 };
-
 export default Input;
