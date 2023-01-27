@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import Input from "./components/Input/Input";
@@ -5,10 +6,21 @@ import MultiSelect from "./components/MultiSelect/MultiSelect";
 import Checkbox from "./components/Checkbox/Checkbox";
 import ReactGA from 'react-ga';
 // const TRACKING_ID = "G-23D0T176JV";
+
+// The below is redundant, because from July 2023
+// Google Analytics will no longer support Universal Analytics.
 const TRACKING_ID = "UA-255342813-1";
 ReactGA.initialize(TRACKING_ID);
 
 function App() {
+
+  useEffect(() => {
+    // Generate a unique session variable.
+    // Use uuid to generate unique string.
+    // Store this string in the session.
+    window.sessionStorage.setItem('session_id', 'your-uuid-value-here');
+  }, [])
+
   return (
     <div className="App">
       <Header />

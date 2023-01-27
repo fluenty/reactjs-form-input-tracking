@@ -14,7 +14,8 @@ export const Input = ({ inputName, label }) => {
   };
 
   const handlePageView = (e) => {
-    ReactGA.pageview("/tests/" + e.target.name + "/" + e.target.value);
+    const sessionId = window.sessionStorage.getItem('session_id');
+    ReactGA.pageview("/exhibitor-widget/" + sessionId + '/' + e.target.name + "/" + e.target.value);
   };
 
   return (
