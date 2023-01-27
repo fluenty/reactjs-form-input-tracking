@@ -4,9 +4,9 @@ import Input from "./components/Input/Input";
 import MultiSelect from "./components/MultiSelect/MultiSelect";
 import Checkbox from "./components/Checkbox/Checkbox";
 import ReactGA from 'react-ga';
-  const TRACKING_ID = "-23DG0T176JV"; // OUR_TRACKING_ID
-  ReactGA.initialize(TRACKING_ID);
-
+// const TRACKING_ID = "G-23D0T176JV";
+const TRACKING_ID = "UA-255342813-1";
+ReactGA.initialize(TRACKING_ID);
 
 function App() {
   return (
